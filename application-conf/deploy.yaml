@@ -1,0 +1,22 @@
+# Target deploy properties
+---
+deploy:
+  cics.cicsplex: CICSTS55
+  cics.cmciurl: https://127.0.0.1:1490
+  bind.maxrc: 4
+  bind.confdir: /etc/dbb
+  bind.user: IBMUSER
+  bind.package: GENASA1
+  bind.qualifier: GENAPP
+  bind.subsys: DBCG
+  db2.sdsnload: DSNC10.SDSNLOAD
+  copy.mapping:
+     "DBRM" :  
+       "mode": "BINARY"
+     "LOAD": 
+       "mode": "LOAD"
+     "MAPLOAD": 
+       "mode": "LOAD"
+  pds.mapping: |-
+    .*.LOAD,CB12.V51.LOAD
+    .*.DBRM,CB12.V51.DBRMLIB
